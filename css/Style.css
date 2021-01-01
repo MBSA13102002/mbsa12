@@ -175,7 +175,7 @@ p{
 
 /* --------------- Site title ---------------- */
 main .site-title{
-    background: url('../IMAGES/background.png');
+    /* background: url('../IMAGES/background.png'); */
     z-index:0;
     background-size: cover;
     height: 110vh;

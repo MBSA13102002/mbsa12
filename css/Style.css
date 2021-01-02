@@ -306,12 +306,12 @@ main .site-content .post-content > .post-image > div{
     overflow: hidden;
 }
 
-main .site-content .post-content > .post-image .iframe{
+main .site-content .post-content > .post-image .img{
     width: 100%;
     transition: all 1s ease;
 }
 
-main .site-content .post-content > .post-image .iframe:hover{
+main .site-content .post-content > .post-image .img:hover{
     transform: scale(1.3);
 }
 

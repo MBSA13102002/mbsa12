@@ -299,7 +299,7 @@ main .site-content .post-content > .post-image .post-info{
     position: absolute;
     bottom: 0%;
     left: 20vw;
-    border-radius: 3rem;
+    /* border-radius: 1rem; */
 }
 
 main .site-content .post-content > .post-image > div{

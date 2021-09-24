@@ -20,7 +20,7 @@
         <h1 class="text-center">Tasks to be Accomplished</h1>
         <center>
             
-            <form action="/" method="POST">
+            <form action="/" method="POST" onsubmit=" return changed()">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">NEW
                 TASK</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -50,7 +50,7 @@
         </center>
         <div class="row" id="taskarea" onchange = changed()>
             {% call catch('') %}
-             
+
             {% endcall %}
 
         </div>
@@ -89,7 +89,7 @@
             var myEditor = document.querySelector('#editor_exp')
             var html = myEditor.children[0].innerHTML                
 
-              document.getElementById('taskarea').innerHTML+=`<div id="div_${id}" class="card m-2" style="width: 18rem;">
+              document.getElementById('taskarea').innerHTML+=`<div  id="div_${id}" class="card m-2" style="width: 18rem;">
                 <div class="card-body">
                     <i class="fa fa-times" aria-hidden="true" id=${id} style="font-size:20px;float:right;cursor:pointer;" onclick="RemoveTask(this)"></i><br>
                     <div  contentEditable="true" style="outline:none;">
@@ -119,6 +119,7 @@
                 }
             });
         }
+
         function RemoveTask(elem){
             a=confirm("Sure??")
             if(a){
@@ -129,6 +130,16 @@
             else{
                 return false
             }
+        }
+        function changed(){
+        a =confirm("Submit?")
+        document.getElementById("htmldata").value = document.getElementById("taskarea").innerHTML
+        if(a){
+            return true
+        }
+        else{
+            return false
+        }
         }
       document.getElementById("htmldata").value = htmlDecode("{{htmldata_from_firebase}}")
       document.getElementById("taskarea").innerHTML = htmlDecode("{{htmldata_from_firebase}}")

@@ -44,10 +44,10 @@
                 </div>
             </div>
                 <input type="text" name="htmldata" id="htmldata" style="display: none;">
-                <button type="submit" class="btn btn-primary">SAVE ALL</button>
+                <button id="saveall" type="submit" class="btn btn-primary">SAVE ALL</button>
             </form>
         </center>
-        <div class="row" id="taskarea">
+        <div class="row" id="taskarea" onchange = changed()>
             {% call catch('') %}
              
             {% endcall %}
@@ -125,14 +125,15 @@
                 return false
             }
         }
-
+      document.getElementById("htmldata").value = htmlDecode("{{htmldata_from_firebase}}")
       document.getElementById("taskarea").innerHTML = htmlDecode("{{htmldata_from_firebase}}")
-       inputs = document.querySelectorAll('.bg-danger > div >div >input')
+      inputs = document.querySelectorAll('.bg-danger > div >div >input')
     
       for(let i =0;i<inputs.length;i++){
           inputs[i].checked = true;
       }
-      var checkbox = document.querySelector('input[type=checkbox]');
+      try
+   {   var checkbox = document.querySelector('input[type=checkbox]');
             
       checkbox.addEventListener('change', function() {
           if (this.checked) {
@@ -145,7 +146,11 @@
               document.getElementById("htmldata").value = document.getElementById("taskarea").innerHTML
               
           }
-      });
+      });}
+catch(err){
+
+}
+     
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

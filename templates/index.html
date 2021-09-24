@@ -133,10 +133,10 @@
       for(let i =0;i<inputs.length;i++){
           inputs[i].checked = true;
       }
-      try
-   {   var checkbox = document.querySelector('input[type=checkbox]');
-            
-      checkbox.addEventListener('change', function() {
+       try
+   {   var checkbox = document.querySelectorAll('input[type=checkbox]');
+           for(let i = 0;i<checkbox.length;i++){ 
+      checkbox[i].addEventListener('change', function() {
           if (this.checked) {
               this.parentElement.parentElement.parentElement.classList.add("bg-danger")
               this.parentElement.parentElement.parentElement.classList.add("text-white")
@@ -147,7 +147,8 @@
               document.getElementById("htmldata").value = document.getElementById("taskarea").innerHTML
               
           }
-      });}
+      });
+   }}
 catch(err){
 
 }

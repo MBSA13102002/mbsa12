@@ -92,7 +92,9 @@
               document.getElementById('taskarea').innerHTML+=`<div id="div_${id}" class="card m-2" style="width: 18rem;">
                 <div class="card-body">
                     <i class="fa fa-times" aria-hidden="true" id=${id} style="font-size:20px;float:right;cursor:pointer;" onclick="RemoveTask(this)"></i><br>
-                    <p class="card-text">${html}</p>
+                    <div  contentEditable="true" style="outline:none;">
+                        <p class="card-text">${html}</p>
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="checkbox_${id}">
                         <label class="form-check-label" for="flexCheckDefault">
